@@ -25,7 +25,7 @@ public abstract class AspStmt extends AspSyntax {
                         st = AspExprStmt.parse(s);
                     }
                     break;
-                    // exeptional
+                    /* exeptional
                 case integerToken:
                     st= AspExprStmt.parse(s);
                     break;
@@ -35,7 +35,7 @@ public abstract class AspStmt extends AspSyntax {
                 case stringToken:
                     st= AspExprStmt.parse(s);
                     break;
-                    //end of exeptionals 
+                    *///end of exeptionals
                 case ifToken:
                     st = AspIfStmt.parse(s);
                     break;
@@ -52,9 +52,9 @@ public abstract class AspStmt extends AspSyntax {
                     st = AspFuncDef.parse(s);
                     break;
                 default:
-                    st= AspExprStmt.parse(s);
-                    //parserError("UnExpected Asp statement  " +
-                      //      s.curToken().kind + "!", s.curLineNum());
+                   // st= AspExprStmt.parse(s);
+                    parserError("UnExpected Asp statement  " +
+                            s.curToken().kind + "!", s.curLineNum());
         }
 
         Main.log.leaveParser("stmt");

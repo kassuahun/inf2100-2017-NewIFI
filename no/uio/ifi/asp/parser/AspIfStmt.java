@@ -55,14 +55,14 @@ public class AspIfStmt extends AspStmt {
         Main.log.prettyWrite(colonToken.toString());
         suteList.get(0).prettyPrint();
         for (int i = 1; i < condList.size() ; i++) {
-            Main.log.prettyWrite(elifToken.toString() +"");
+            Main.log.prettyWrite(elifToken.toString() +" ");
             condList.get(i).prettyPrint();
             Main.log.prettyWrite(colonToken.toString());
             suteList.get(i).prettyPrint();
         }
         if (elsesute != null){
 
-            Main.log.prettyWrite(elseToken.toString() +" ");
+            Main.log.prettyWrite(elseToken.toString() +"");
             Main.log.prettyWrite(colonToken.toString());
             elsesute.prettyPrint();
         }

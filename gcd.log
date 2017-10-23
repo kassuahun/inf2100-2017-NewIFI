@@ -504,3 +504,13 @@
     </expr stmt>
   </stmt>
 </program>
+PP> def GCD (m, n):
+PP>   if n == 0:
+PP>     return m
+PP>   else:
+PP>     return GCD(n, m % n)
+PP> 
+PP> v1 = int(input("A number: "))
+PP> v2 = int(input("Another number: "))
+PP> res = GCD(v1, v2)
+PP> print("GCD(" + str(v1) + "," + str(v2) + ") =", res)

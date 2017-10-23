@@ -1470,32 +1470,35 @@
     </expr stmt>
   </stmt>
 </program>
-PP> def pow(a, b):
+PP> def pow (a, b):
 PP>   if b > 1:
 PP>     return pow(a, b - 1) * a
-PP>   elifb < 1:
+PP>   elif b < 1:
 PP>     return pow(a, b + 1) / a
-PP>   else :
+PP>   else:
 PP>     return a
-PP> def rough_log(x):
+PP> 
+PP> def rough_log (x):
 PP>   if x > 10:
 PP>     return rough_log(x / 10) + 1
-PP>   if x < .100000:
+PP>   if x < 0.100000:
 PP>     return rough_log(x * 10) - 1
 PP>   return 1
-PP> def sqrt(v):
-PP>   x= [0] * 12
-PP>   d= rough_log(v)
+PP> 
+PP> def sqrt (v):
+PP>   x = [0] * 12
+PP>   d = rough_log(v)
 PP>   if d % 2 == 1:
-PP>     x[0]= pow(2 * 10, (d - 1) // 2)
-PP>   else :
-PP>     x[0]= pow(6 * 10, (d - 2) // 2)
-PP>   ix= 0
-PP>   whileix < 11:
-PP>     tmp= (x[ix] + v / x[ix]) / 2
-PP>     ix= ix + 1
-PP>     x[ix]= tmp
+PP>     x[0] = pow(2 * 10, (d - 1) // 2)
+PP>   else:
+PP>     x[0] = pow(6 * 10, (d - 2) // 2)
+PP>   ix = 0
+PP>   while ix < 11:
+PP>     tmp = (x[ix] + v / x[ix]) / 2
+PP>     ix = ix + 1
+PP>     x[ix] = tmp
 PP>   return x[11]
-PP> v= float(input("Give a number: "))
-PP> sq2= sqrt(v)
+PP> 
+PP> v = float(input("Give a number: "))
+PP> sq2 = sqrt(v)
 PP> print(sq2, "squared is", pow(sq2, 2))

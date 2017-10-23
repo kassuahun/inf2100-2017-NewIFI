@@ -66,6 +66,7 @@ public class AspFuncDef extends AspStmt{
         Main.log.prettyWrite(colonToken.toString());
         //Main.log.prettyWriteLn();
         funcSuite.prettyPrint();
+        Main.log.prettyWriteLn();
     }
 
     @Override

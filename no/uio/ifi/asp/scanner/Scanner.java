@@ -22,26 +22,26 @@ public class Scanner {
 
    //Scanner constracture
     public Scanner(String fileName) {
-	curFileName = fileName;
-	indents[0] = 0;  numIndents = 1;
+        curFileName = fileName;
+        indents[0] = 0;  numIndents = 1;
 
-	try {
-	    sourceFile = new LineNumberReader(
-			    new InputStreamReader(
-				new FileInputStream(fileName),
-				"UTF-8"));
-	} catch (IOException e) {
-	    scannerError("Cannot read " + fileName + "!");
-	}
+        try {
+            sourceFile = new LineNumberReader(
+                    new InputStreamReader(
+                    new FileInputStream(fileName),
+                    "UTF-8"));
+        } catch (IOException e) {
+            scannerError("Cannot read " + fileName + "!");
+        }
     }
 
     private void scannerError(String message) {
-	String m = "Asp scanner error";
-	if (curLineNum() > 0)
-	    m += " on line " + curLineNum();
-	m += ": " + message;
+        String m = "Asp scanner error";
+        if (curLineNum() > 0)
+            m += " on line " + curLineNum();
+        m += ": " + message;
 
-	Main.error(m);
+        Main.error(m);
     }
 
     public Token curToken() {
@@ -52,61 +52,56 @@ public class Scanner {
     }
 
     public void readNextToken() {
-	if (! curLineTokens.isEmpty())
-	    curLineTokens.remove(0);
+        if (! curLineTokens.isEmpty())
+            curLineTokens.remove(0);
     }
 
     public boolean anyEqualToken() {
-	for (Token t: curLineTokens) {
-	    if (t.kind == equalToken) return true;
-	}
+        for (Token t: curLineTokens) {
+            if (t.kind == equalToken) return true;
+        }
 	return false;
     }
 
     public void readNextLine() {
-	curLineTokens.clear();
-
-	String line = null;
-	try {
-	    line = sourceFile.readLine();
-			if (line == null) {
-			sourceFile.close();
-			sourceFile = null;
-			} else {
-		Main.log.noteSourceLine(curLineNum(), line);
-	    }
-	} catch (IOException e) {
-	    sourceFile = null;
-	    scannerError("Unspecified I/O error!");
-	}
+        curLineTokens.clear();
+        String line = null;
+        try {
+            line = sourceFile.readLine();
+                if (line == null) {
+                sourceFile.close();
+                sourceFile = null;
+                } else {
+            Main.log.noteSourceLine(curLineNum(), line);
+            }
+        } catch (IOException e) {
+            sourceFile = null;
+            scannerError("Unspecified I/O error!");
+        }
 
 	//-- Must be changed in part 1:
-	if (line==null){
-        addToIndents(0);
-		curLineTokens.add(new Token(eofToken,curLineNum()));
+        if (line==null){
+            addToIndents(0);
+            curLineTokens.add(new Token(eofToken,curLineNum()));
 
-	}else if("".equals(line.trim()) && indents[top] > 0){
+        }/*else if(line.startsWith("#")){
 
+            return;
+        }*/else if("".equals(line.trim()) || line.startsWith("#")){
 
-	}else if(line.startsWith("#")){
+        return;
+        }else{
+                String currentLine = expandLeadingTabs(line);
+                numIndents = findIndent(currentLine);
+                addToIndents(numIndents);
+                findToken(currentLine);
+         }
 
-		return;
-	}else{
-		   String currentLine = expandLeadingTabs(line);
-		   numIndents = findIndent(currentLine);
+        // Terminate line:
+        curLineTokens.add(new Token(newLineToken,curLineNum()));
 
-            addToIndents(numIndents);
-
-		findToken(currentLine);
-
-	 }
-
-	// Terminate line:
-	curLineTokens.add(new Token(newLineToken,curLineNum()));
-
-	for (Token t: curLineTokens) 
-	    Main.log.noteToken(t);
-
+        for (Token t: curLineTokens)
+            Main.log.noteToken(t);
     }
 
     public TokenKind tokenKindSearch(String tImage){
