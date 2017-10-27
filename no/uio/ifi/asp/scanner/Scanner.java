@@ -1,3 +1,12 @@
+/**
+* This scanner program implements an application that takes in an Asp program file, read line by line and store each characters 
+* by creating a tokens object.
+*
+* @author Kassahun and Melat
+* @since August 1027
+*
+*/
+
 package no.uio.ifi.asp.scanner;
 
 import no.uio.ifi.asp.main.Main;
@@ -18,7 +27,13 @@ public class Scanner {
 	private int top = 0;
     private int numIndents = 0;
     private final int tabDist = 4;
-
+/**
+* The scanner constructor takes in a file and store in in the curFileName.
+* it then creates an object of line numer reads by taking the file namne. 
+* if it can not be read it will print error message
+* @param String filename
+* @return Nothing
+*/
 
    //Scanner constracture
     public Scanner(String fileName) {
@@ -34,7 +49,11 @@ public class Scanner {
             scannerError("Cannot read " + fileName + "!");
         }
     }
-
+/**
+* 
+* @param message  
+*
+*/
     private void scannerError(String message) {
         String m = "Asp scanner error";
         if (curLineNum() > 0)
