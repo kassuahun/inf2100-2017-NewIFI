@@ -1,0 +1,71 @@
+             package no.uio.ifi.asp.main
+            - LogFile
+            - Main
+after sync
+with final test
+hi Melat
+at IFI 1
+at if 22
+
+
+            Part II
+            package no.uio.ifi.asp.parser
+            - [AspSyntax]
+            - - AspAndTest   //
+            - - AspCompOpr
+            - - AspComparison
+            - - AspExpr '
+            - - AspFactor
+            - - AspFactorOpr
+            - - AspFactorPrefix
+            - - AspNotTest
+            - - AspPrimary
+            - - AspSuite
+            - - AspTerm
+            - - AspTermOpr
+            - - AspProgram
+
+            - - [AspAtom]
+            - - - AspBooleanLiteral
+            - - - AspDictDisplay
+            - - - AspFloatLiteral
+            - - - AspInnerExpr
+            - - - AspIntegerLiteral
+            - - - AspListDisplay
+            - - - AspName
+            - - - AspNoneLiteral
+            - - - AspStringLiteral
+
+            - - [AspPrimarySuffix]       .......
+            - - - AspArguments
+            - - - AspSubscription
+
+            - - [AspStmt]
+            - - - AspAssignment
+            - - - AspExprStmt''''
+            - - - AspFuncDef
+            - - - AspIfStmt
+            - - - AspPassStmt
+            - - - AspReturnStmt
+            - - - AspWhileStmt
+
+
+            Part 3
+            package no.uio.ifi.asp.runtime
+            - RuntimeScope
+            - - RuntimeLibrary
+            - [RuntimeValue]
+            - - RuntimeBoolValue
+            - - RuntimeDictValue
+            - - RuntimeFloatValue
+            - - RuntimeFunc
+            - - RuntimeIntValue
+            - - RuntimeListValue
+            - - RuntimeNoneValue
+            - - RuntimeStringValue
+
+            Part one
+            package no.uio.ifi.asp.scanner
+            - Scanner   ()
+            - Token     ()
+            - TokenKind ()

@@ -1,0 +1,71 @@
+             package no.uio.ifi.asp.main
+            - LogFile
+            - Main
+after sync
+with final test
+hi Melat
+at IFI 1
+at if 22
+
+
+            Part II
+            package no.uio.ifi.asp.parser
+            - [AspSyntax]               Done
+            - - AspAndTest   //         Done
+            - - AspCompOpr              Done
+            - - AspComparison           Done
+            - - AspExpr '               Done
+            - - AspFactor               Done
+            - - AspFactorOpr            Done
+            - - AspFactorPrefix         Done
+            - - AspNotTest              Done
+            - - AspPrimary              Done
+            - - AspSuite                Done
+            - - AspTerm                 Done
+            - - AspTermOpr              Done
+            - - AspProgram              Done
+
+            - - [AspAtom]               Done
+            - - - AspBooleanLiteral     Done
+            - - - AspDictDisplay        Done
+            - - - AspFloatLiteral       Done
+            - - - AspInnerExpr          Done
+            - - - AspIntegerLiteral     structure
+            - - - AspListDisplay        Done
+            - - - AspName               structure
+            - - - AspNoneLiteral        Done
+            - - - AspStringLiteral      structure
+
+            - - [AspPrimarySuffix]      Done .......
+            - - - AspArguments          Done
+            - - - AspSubscription       Done
+
+            - - [AspStmt]               Done
+            - - - AspAssignment         Done
+            - - - AspExprStmt''''       Done
+            - - - AspFuncDef            structure
+            - - - AspIfStmt             Done
+            - - - AspPassStmt           Done
+            - - - AspReturnStmt         Done
+            - - - AspWhileStmt          Done
+
+
+            Part 3
+            package no.uio.ifi.asp.runtime
+            - RuntimeScope
+            - - RuntimeLibrary
+            - [RuntimeValue]
+            - - RuntimeBoolValue
+            - - RuntimeDictValue
+            - - RuntimeFloatValue
+            - - RuntimeFunc
+            - - RuntimeIntValue
+            - - RuntimeListValue
+            - - RuntimeNoneValue
+            - - RuntimeStringValue
+
+            Part one
+            package no.uio.ifi.asp.scanner
+            - Scanner   (done)
+            - Token     (done)
+            - TokenKind (done)
