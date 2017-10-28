@@ -7,6 +7,8 @@ import no.uio.ifi.asp.runtime.RuntimeScope;
 import no.uio.ifi.asp.runtime.RuntimeValue;
 import no.uio.ifi.asp.scanner.Scanner;
 import no.uio.ifi.asp.scanner.TokenKind;
+import no.uio.ifi.asp.scanner.Token;
+
 
 public class AspBooleanLiteral extends AspAtom {
 
