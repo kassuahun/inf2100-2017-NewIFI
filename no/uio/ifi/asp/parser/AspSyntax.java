@@ -42,8 +42,8 @@ public abstract class AspSyntax {
 
 
     public static void skip(Scanner s, TokenKind tk) {
-	test(s, tk);
-	s.readNextToken();
+        test(s, tk);
+        s.readNextToken();
     }
 
 

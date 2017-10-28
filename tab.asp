@@ -1,9 +1,6 @@
-
-def find_primes():
-   i1 = 2
-   while i1 <= n:
-      i2 = 2 * i1
-      while i2 <= n:
-         primes[i2] = False
-         i2 = i2 + i1
-      i1 = i1+1
+"Testing integer expressions:"
+42
+-1017
+-2 + 5 * 7
+100 % (-2 % (+2 * 5) + 18)
+1234567890 // 1000000
