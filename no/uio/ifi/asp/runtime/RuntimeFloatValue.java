@@ -1,5 +1,7 @@
 package no.uio.ifi.asp.runtime;
 
+import no.uio.ifi.asp.parser.AspSyntax;
+
 public class RuntimeFloatValue extends RuntimeValue{
     private double floatValue;
     private boolean boolValue;
@@ -20,7 +22,11 @@ public class RuntimeFloatValue extends RuntimeValue{
         return "float";
     }
 
-    public  boolean isfloat(){
+    @Override
+    public RuntimeValue evalAdd(RuntimeValue v, AspSyntax where) {
+
+        return null;
+    }
+
 
     }
-}

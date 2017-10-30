@@ -39,6 +39,8 @@ public class AspInnerExpr extends AspAtom {
 
     @Override
     RuntimeValue eval(RuntimeScope curScope) throws RuntimeReturnValue {
-        return null;
+        RuntimeValue value = expr.eval(curScope);
+
+        return value;
     }
 }

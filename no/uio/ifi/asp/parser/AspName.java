@@ -28,6 +28,9 @@ public class AspName extends AspAtom{
         return name;
     }
 
+    public String getTokenName() {
+        return tokenName;
+    }
 
     @Override
     protected void prettyPrint() {
@@ -37,6 +40,7 @@ public class AspName extends AspAtom{
 
     @Override
     RuntimeValue eval(RuntimeScope curScope) throws RuntimeReturnValue {
-        return null;
+
+        return curScope.find(tokenName, this);
     }
 }

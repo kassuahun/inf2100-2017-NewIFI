@@ -11,7 +11,7 @@ at if 22
             Part II
             package no.uio.ifi.asp.parser
             - [AspSyntax]
-            - - AspAndTest   //
+            - - AspAndTest              Done
             - - AspCompOpr
             - - AspComparison
             - - AspExpr '
@@ -26,24 +26,24 @@ at if 22
             - - AspProgram
 
             - - [AspAtom]
-            - - - AspBooleanLiteral
-            - - - AspDictDisplay
+            - - - AspBooleanLiteral     Done
+            - - - AspDictDisplay        Done
             - - - AspFloatLiteral       Done
-            - - - AspInnerExpr
-            - - - AspIntegerLiteral
-            - - - AspListDisplay
-            - - - AspName
-            - - - AspNoneLiteral
-            - - - AspStringLiteral
+            - - - AspInnerExpr          Done
+            - - - AspIntegerLiteral     Done
+            - - - AspListDisplay        Done
+            - - - AspName               Done// not actually understood issue with name
+            - - - AspNoneLiteral        Done// issue with constructor
+            - - - AspStringLiteral      Done
 
-            - - [AspPrimarySuffix]       .......
-            - - - AspArguments
-            - - - AspSubscription
+            - - [AspPrimarySuffix]       Nothing to do  .......
+            - - - AspArguments          Done
+            - - - AspSubscription       Done
 
             - - [AspStmt]
-            - - - AspAssignment
-            - - - AspExprStmt''''
-            - - - AspFuncDef
+            - - - AspAssignment         Done
+            - - - AspExprStmt''''       Done
+            - - - AspFuncDef            Complications
             - - - AspIfStmt
             - - - AspPassStmt
             - - - AspReturnStmt

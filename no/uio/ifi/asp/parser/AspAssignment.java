@@ -63,6 +63,22 @@ public class AspAssignment extends AspStmt{
 
     @Override
     RuntimeValue eval(RuntimeScope curScope) throws RuntimeReturnValue {
+        RuntimeValue rtvExpr = expr.eval(curScope);
+        RuntimeValue rtvName = null;
+        if (sub.size() >0){
+           rtvName = name.eval(curScope);
+            for (int i = 0; i < sub.size()-1 ; i++) {
+                rtvName = rtvName.evalSubscription(sub.get(i).eval(curScope), this);
+            }
+
+            rtvName.evalAssignElem(sub.get(sub.size()-1).eval(curScope), rtvExpr, this);
+
+        }else{
+            // not sure
+            curScope.assign(name.getTokenName(), rtvExpr);
+        }
+
+        //return rtvName; dont understand
         return null;
     }
 }
