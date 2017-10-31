@@ -48,7 +48,8 @@ public class Scanner {
         }
     }
 /**
-* This method is to store in a variable m is or to print out an error if there is 0 line to read or no more line.
+* This method checks if there is 0 line to read and stores the message in a variable m 
+* then print out an error using the method call from main.
 * @param message  
 * @return Nothing
 */
@@ -62,8 +63,8 @@ public class Scanner {
     }
 /**
 * This method is to store in a variable m is or to print out an error if there is 0 line to read or no more line.
-* @param message  
-* @return Nothing
+* @param Nothing  
+* @return Token
 */
     public Token curToken() {
 		while (curLineTokens.isEmpty()) {
