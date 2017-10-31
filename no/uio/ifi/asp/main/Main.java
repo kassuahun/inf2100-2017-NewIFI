@@ -166,7 +166,11 @@ public class Main {
 	}
     }
 
-
+/**
+* This method is to print the error and exit from the program.
+* @param message  
+* @return Nothing
+*/
     public static void error(String message) {
 	System.out.println();
 	System.err.println(message);
