@@ -62,7 +62,7 @@ public class Scanner {
         Main.error(m);
     }
 /**
-* This method is to store in a variable m is or to print out an error if there is 0 line to read or no more line.
+* This method is to check if there is a token in the ArrayList and return it or keep reading next line if not.
 * @param Nothing  
 * @return Token
 */
@@ -72,12 +72,20 @@ public class Scanner {
 		}
 	return curLineTokens.get(0);
     }
-
+/**
+* This method is check if the ArrayList is not empty then remove the token on the first position.
+* @param Nothing  
+* @return Nothing
+*/
     public void readNextToken() {
         if (! curLineTokens.isEmpty())
             curLineTokens.remove(0);
     }
-
+/**
+* This method is to check if there are any equal tokens in the ArrayList.
+* @param Nothing   
+* @return boolean
+*/
     public boolean anyEqualToken() {
         for (Token t: curLineTokens) {
             if (t.kind == equalToken) return true;
