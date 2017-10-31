@@ -21,7 +21,7 @@ import static no.uio.ifi.asp.scanner.TokenKind.*;
 
 public class Scanner {
     private LineNumberReader sourceFile = null;
-    private String curFileName;
+     private String curFileName;
     private ArrayList<Token> curLineTokens = new ArrayList<>();
     private int indents[] = new int[100];
 	private int top = 0;
@@ -34,8 +34,6 @@ public class Scanner {
 * @param String filename
 * @return Nothing
 */
-
-   //Scanner constracture
     public Scanner(String fileName) {
         curFileName = fileName;
         indents[0] = 0;  numIndents = 1;
@@ -50,9 +48,9 @@ public class Scanner {
         }
     }
 /**
-* 
+* This method is to store in a variable m is or to print out an error if there is 0 line to read or no more line.
 * @param message  
-*
+* @return Nothing
 */
     private void scannerError(String message) {
         String m = "Asp scanner error";
@@ -62,7 +60,11 @@ public class Scanner {
 
         Main.error(m);
     }
-
+/**
+* This method is to store in a variable m is or to print out an error if there is 0 line to read or no more line.
+* @param message  
+* @return Nothing
+*/
     public Token curToken() {
 		while (curLineTokens.isEmpty()) {
 			readNextLine();
