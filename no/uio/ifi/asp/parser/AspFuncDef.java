@@ -1,6 +1,7 @@
 package no.uio.ifi.asp.parser;
 
 import no.uio.ifi.asp.main.Main;
+import no.uio.ifi.asp.runtime.RuntimeFunc;
 import no.uio.ifi.asp.runtime.RuntimeReturnValue;
 import no.uio.ifi.asp.runtime.RuntimeScope;
 import no.uio.ifi.asp.runtime.RuntimeValue;
@@ -15,9 +16,9 @@ import static no.uio.ifi.asp.scanner.TokenKind.*;
  */
 public class AspFuncDef extends AspStmt{
 
-    ArrayList<AspName> argNameList = new ArrayList<AspName>();
-    AspName funcName;
-    AspSuite funcSuite;
+    public ArrayList<AspName> argNameList = new ArrayList<AspName>();
+    public AspName funcName;
+    public AspSuite funcSuite;
 
     public AspFuncDef(int i) {
         super(i);
@@ -72,7 +73,20 @@ public class AspFuncDef extends AspStmt{
     @Override
     public RuntimeValue eval(RuntimeScope curScope) throws RuntimeReturnValue {
         //-- Must be changed in part 3:
-        return null;
+        ArrayList<RuntimeValue> argRuntimeValues = new ArrayList<>();
+        RuntimeValue rtv = null;
+        funcName.eval(curScope);
+
+        if (argNameList.size() != 0){
+            for(int i = 0; i < argNameList.size(); i++) {
+                argRuntimeValues.add(argNameList.get(i).eval(curScope));
+            }
+        }
+
+        rtv = new RuntimeFunc(funcName.toString(), this);
+        curScope.assign(funcName.toString(), rtv);
+
+        return rtv;
     }
 
 }

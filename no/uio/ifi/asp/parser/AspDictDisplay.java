@@ -11,7 +11,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import static no.uio.ifi.asp.scanner.TokenKind.*;
-
+/*
+* Done
+* */
 public class AspDictDisplay extends AspAtom{
     ArrayList<AspStringLiteral> strLitList = new ArrayList<AspStringLiteral>();
     ArrayList<AspExpr> exprsList = new ArrayList<AspExpr>();
@@ -64,16 +66,17 @@ public class AspDictDisplay extends AspAtom{
 
     @Override
     RuntimeValue eval(RuntimeScope curScope) throws RuntimeReturnValue {
-        HashMap<String, RuntimeValue> dict= new HashMap<>();
+        RuntimeValue res = null;
+        HashMap<String, RuntimeValue> dictPair= new HashMap<>();
         if(strLitList.size() == 0) {
-            return new RuntimeDictValue(dict);
+            res = new RuntimeDictValue(dictPair);
         }
         for(int i = 0; i < strLitList.size(); i++) {
             String str = strLitList.get(i).eval(curScope).getStringValue("string", this);
             RuntimeValue rV = this.exprsList.get(i).eval(curScope);
-            dict.put(str, rV);
+            dictPair.put(str, rV);
         }
-
-        return new RuntimeDictValue(dict);
+        res = new RuntimeDictValue(dictPair);
+        return res;
     }
 }

@@ -1,6 +1,7 @@
 package no.uio.ifi.asp.parser;
 
 import no.uio.ifi.asp.main.Main;
+import no.uio.ifi.asp.runtime.RuntimeLibrary;
 import no.uio.ifi.asp.runtime.RuntimeReturnValue;
 import no.uio.ifi.asp.runtime.RuntimeScope;
 import no.uio.ifi.asp.runtime.RuntimeValue;
@@ -49,6 +50,12 @@ public class AspProgram extends AspSyntax {
     @Override
     public RuntimeValue eval(RuntimeScope curScope) throws RuntimeReturnValue {
 	//-- Must be changed in part 4:
-	return null;
+        RuntimeLibrary lScope = new RuntimeLibrary();
+        RuntimeScope scope = new RuntimeScope(lScope);
+        for (AspStmt stmt : stmts) {
+            stmt.eval(scope);
+
+        }
+        return null;
     }
 }

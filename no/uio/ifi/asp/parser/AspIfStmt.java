@@ -61,27 +61,24 @@ public class AspIfStmt extends AspStmt {
             suteList.get(i).prettyPrint();
         }
         if (elsesute != null){
-
-            Main.log.prettyWrite(elseToken.toString() +"");
+            Main.log.prettyWrite(elseToken.toString() + "");
             Main.log.prettyWrite(colonToken.toString());
             elsesute.prettyPrint();
         }
-
-
     }
 
     @Override
     RuntimeValue eval(RuntimeScope curScope) throws RuntimeReturnValue {
         //del 4
+        RuntimeValue rtv = null;
 
         for (int i = 0; i < condList.size() ; i++) {
-            Boolean cond = condList.get(i).getBoolValue("if test", this);
+            Boolean cond = condList.get(i).eval(curScope).getBoolValue("if test", this);
             if (cond) suteList.get(i).eval(curScope);
         }
         if(elsesute != null){
             elsesute.eval(curScope);
-
         }
-        return null;
+        return rtv;
     }
 }

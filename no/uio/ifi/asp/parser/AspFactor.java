@@ -5,6 +5,7 @@ import no.uio.ifi.asp.runtime.RuntimeReturnValue;
 import no.uio.ifi.asp.runtime.RuntimeScope;
 import no.uio.ifi.asp.runtime.RuntimeValue;
 import no.uio.ifi.asp.scanner.Scanner;
+import no.uio.ifi.asp.scanner.TokenKind;
 
 import java.util.ArrayList;
 
@@ -48,8 +49,43 @@ public class AspFactor extends AspSyntax{
     }
 
     @Override
-    RuntimeValue eval(RuntimeScope curScope) throws RuntimeReturnValue {
-        return null;
+    public RuntimeValue eval(RuntimeScope curScope) throws RuntimeReturnValue {
+
+        RuntimeValue v = primaryList.get(0).eval(curScope);
+        if(fPrefix != null) {
+
+            switch (fPrefix.oprType) {
+                case minusToken:
+                    v = v.evalNegate(this);
+                    break;
+                case plusToken:
+                    v= v.evalPositive(this);
+                    break;
+                default:
+                    Main.panic("Illegal term operator: " + fPrefix.oprType + "!");
+            }
+        }
+
+        for (int i = 1;  i < primaryList .size();  ++i) {
+            TokenKind factOprType = facOprList.get(i-1).factOprType;
+            switch (factOprType) {
+                case astToken:
+                    v = v.evalMultiply(primaryList.get(i).eval(curScope), this);
+                    break;
+                case slashToken:
+                    v = v.evalDivide(primaryList.get(i).eval(curScope), this);
+                    break;
+                case percentToken:
+                    v = v.evalModulo(primaryList.get(i).eval(curScope), this);
+                    break;
+                case doubleSlashToken:
+                    v = v.evalIntDivide(primaryList.get(i).eval(curScope), this);
+                    break;
+                default:
+                    Main.panic("Illegal term operator: " + factOprType + "!");
+            }
+        }
+        return v;
     }
 }
 

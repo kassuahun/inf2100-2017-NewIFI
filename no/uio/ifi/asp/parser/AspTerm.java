@@ -59,8 +59,6 @@ public class AspTerm extends AspSyntax {
                     Main.panic("Illegal term operator: " + k + "!");
             }
         }
-
-
         return v;
     }
 }
