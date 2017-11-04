@@ -6,6 +6,6 @@ public class RuntimeReturnValue extends Exception {
     RuntimeValue value;
 
     public RuntimeReturnValue(RuntimeValue v) {
-	value = v;
+	    value = v;
     }
 }

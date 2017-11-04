@@ -5,7 +5,7 @@ package no.uio.ifi.asp.runtime;
 import no.uio.ifi.asp.parser.AspSyntax;
 
 import java.util.HashMap;
-
+//nothing to do
 public class RuntimeScope {
     RuntimeScope outer;
     HashMap<String,RuntimeValue> decls = new HashMap<>();

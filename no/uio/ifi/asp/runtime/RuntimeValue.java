@@ -139,4 +139,9 @@ public abstract class RuntimeValue {
 	runtimeError("'Function call (...)' undefined for "+typeName()+"!", where);
 	return null;  // Required by the compiler!
     }
+
+    public ArrayList<RuntimeValue> getListValue(String what, AspSyntax where){
+        runtimeError("Type error: "+what+" is not an ArrayList<RuntimeValue>!", where);
+        return null; // Required by the compiler
+    }
 }
