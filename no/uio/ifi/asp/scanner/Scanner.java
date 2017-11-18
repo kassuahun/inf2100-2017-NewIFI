@@ -92,7 +92,12 @@ public class Scanner {
         }
 	return false;
     }
-
+/**
+* This method reads a newline and here it checkes all the possible occurances while reading a new line.
+* 
+* @param Nothing  
+* @return Nothing
+*/
     public void readNextLine() {
         curLineTokens.clear();
         String line = null;
@@ -119,7 +124,7 @@ public class Scanner {
             return;
         }*/else if("".equals(line.trim()) || line.startsWith("#")){
 
-        return;
+        	return;
         }else{
                 String currentLine = expandLeadingTabs(line);
                 numIndents = findIndent(currentLine);
@@ -133,6 +138,11 @@ public class Scanner {
         for (Token t: curLineTokens)
             Main.log.noteToken(t);
     }
+/**
+* This method will return the tokenkind by searching from the object or return null if not found .
+* @param tImage : String 
+* @return TokenKind
+*/
 
     public TokenKind tokenKindSearch(String tImage){
         for (TokenKind k: TokenKind.values()) {
@@ -142,7 +152,11 @@ public class Scanner {
         }
         return null;
     }
-
+/**
+* This method is to check if there is a token in the ArrayList and return it or keep reading next line if not.
+* @param tabs: int  
+* @return Token
+*/
 	private String addToIndents(int tabs){
 
 			if(indents[top] == 0 && tabs > 0 && top == 0){
