@@ -9,6 +9,9 @@ import no.uio.ifi.asp.scanner.Scanner;
 import static no.uio.ifi.asp.scanner.TokenKind.leftBracketToken;
 import static no.uio.ifi.asp.scanner.TokenKind.rightBracketToken;
 
+/**
+ *
+ */
 public class AspSubscription extends AspPrimarySuffix{
 
     AspSubscription(int n) {

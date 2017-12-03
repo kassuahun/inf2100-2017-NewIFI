@@ -10,6 +10,9 @@ import no.uio.ifi.asp.scanner.TokenKind;
 
 import java.text.DecimalFormat;
 
+/**
+ *
+ */
 public class AspFloatLiteral extends AspAtom{
     double fLit;
     AspFloatLiteral(int n) {
@@ -36,9 +39,6 @@ public class AspFloatLiteral extends AspAtom{
     protected void prettyPrint() {
         DecimalFormat df = new DecimalFormat("0.000000");
         Main.log.prettyWrite(""+df.format(fLit));
-        //String .format("%.6g%n", fLit);
-
-       // Main.log.prettyWrite(String .format("%.6g", fLit));
 
     }
 

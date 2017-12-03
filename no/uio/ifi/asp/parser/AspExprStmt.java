@@ -8,7 +8,9 @@ import no.uio.ifi.asp.scanner.Scanner;
 
 import static no.uio.ifi.asp.scanner.TokenKind.newLineToken;
 
-
+/**
+ *
+ */
 public class AspExprStmt extends AspStmt{
     AspExpr expr;
 

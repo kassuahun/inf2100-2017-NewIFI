@@ -10,7 +10,9 @@ import no.uio.ifi.asp.scanner.Scanner;
 import java.util.ArrayList;
 
 import static no.uio.ifi.asp.scanner.TokenKind.andToken;
-
+/**
+ *
+ */
 public class AspAndTest extends AspSyntax{
 //test
 

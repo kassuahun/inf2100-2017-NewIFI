@@ -6,8 +6,8 @@ import no.uio.ifi.asp.parser.AspSyntax;
  * Tested and work
  */
 public class RuntimeIntValue extends RuntimeValue {
-    long intValue;
-    boolean boolValue;
+    private long intValue;
+    private boolean boolValue;
 
     public RuntimeIntValue(long v) {
         intValue = v;
@@ -56,7 +56,7 @@ public class RuntimeIntValue extends RuntimeValue {
             double v2 = v.getFloatValue("+ Operator", where);
             res = new RuntimeFloatValue(intValue + v2);
         } else {
-            runtimeError("Type error for +.", where);
+            runtimeError("Type Error! at RuntimeIntValue.evalAdd +.", where);
         }
         return res;
     }
@@ -71,7 +71,7 @@ public class RuntimeIntValue extends RuntimeValue {
             double v2 = v.getFloatValue("- Operator", where);
             res = new RuntimeFloatValue(intValue - v2);
         } else {
-            runtimeError("Type error for -.", where);
+            runtimeError("Type Error! at RuntimeIntValue.evalSubtract -.", where);
         }
         return res;
     }
@@ -86,7 +86,7 @@ public class RuntimeIntValue extends RuntimeValue {
             double v2 = v.getFloatValue("* Operator", where);
             res = new RuntimeFloatValue(intValue * v2);
         } else {
-            runtimeError("Type error for *.", where);
+            runtimeError("Type Error! at RuntimeIntValue.evalMultiply *.", where);
         }
         return res;
     }
@@ -101,7 +101,7 @@ public class RuntimeIntValue extends RuntimeValue {
             double v2 = v.getFloatValue("/ Operator", where);
             res = new RuntimeFloatValue(intValue / v2);
         } else {
-            runtimeError("Type error for /.", where);
+            runtimeError("Type Error! at RuntimeIntValue.evalDivide /.", where);
         }
         return res;
     }
@@ -116,7 +116,7 @@ public class RuntimeIntValue extends RuntimeValue {
             double v2 = v.getFloatValue("/ Operator", where);
             res = new RuntimeFloatValue(Math.floor(intValue / v2));
         } else {
-            runtimeError("Type error for //.", where);
+            runtimeError("Type Error! at RuntimeIntValue.evalIntDivide //.", where);
         }
         return res;
     }
@@ -131,7 +131,7 @@ public class RuntimeIntValue extends RuntimeValue {
             double l = v.getFloatValue("% Operator", where);
             res = new RuntimeFloatValue(intValue - l * Math.floor(intValue/l));
         }else {
-            runtimeError("Type error for %.", where);
+            runtimeError("Type Error! at RuntimeIntValue.evalModulo %.", where);
         }
         return res;
     }
@@ -148,7 +148,7 @@ public class RuntimeIntValue extends RuntimeValue {
         }else if(v instanceof RuntimeNoneValue) {
             res = new RuntimeBoolValue(false);
         }else {
-            runtimeError("Type error for !=.", where);
+            runtimeError("Type Error! at RuntimeIntValue.evalNotEqual !=.", where);
         }
         return res;
     }
@@ -165,7 +165,7 @@ public class RuntimeIntValue extends RuntimeValue {
         }else if(v instanceof RuntimeNoneValue) {
             res = new RuntimeBoolValue(false);
         }else {
-            runtimeError("Type error for ==.", where);
+            runtimeError("Type Error! at RuntimeIntValue.evalEqual ==.", where);
         }
         return res;
     }
@@ -180,7 +180,7 @@ public class RuntimeIntValue extends RuntimeValue {
             double d = v.getFloatValue(" < Operator", where);
             res = new RuntimeBoolValue( intValue < d );
         }else {
-            runtimeError("Type error for <.", where);
+            runtimeError("Type Error! at RuntimeIntValue.evalLess <.", where);
         }
         return res;
     }
@@ -195,7 +195,7 @@ public class RuntimeIntValue extends RuntimeValue {
             double d = v.getFloatValue(" <= Operator", where);
             res = new RuntimeBoolValue( intValue < d);
         }else {
-            runtimeError("Type error for <=.", where);
+            runtimeError("Type Error! at RuntimeIntValue.evalLessEqual <=.", where);
         }
         return res;
     }
@@ -210,7 +210,7 @@ public class RuntimeIntValue extends RuntimeValue {
             double d = v.getFloatValue(" > Operator", where);
             res = new RuntimeBoolValue( intValue > d );
         }else {
-            runtimeError("Type error for >.", where);
+            runtimeError("Type Error! at RuntimeIntValue.evalGreater >.", where);
         }
         return res;
     }
@@ -225,7 +225,7 @@ public class RuntimeIntValue extends RuntimeValue {
             double d = v.getFloatValue(" >= Operator", where);
             res = new RuntimeBoolValue( intValue > d);
         }else {
-            runtimeError("Type error for >=.", where);
+            runtimeError("Type Error! at RuntimeIntValue.evalGreaterEqual >=.", where);
         }
         return res;
     }

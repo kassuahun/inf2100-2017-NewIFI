@@ -8,6 +8,9 @@ import no.uio.ifi.asp.scanner.Scanner;
 
 import static no.uio.ifi.asp.scanner.TokenKind.nameToken;
 
+/**
+ *
+ */
 public class AspName extends AspAtom{
     String tokenName;
 

@@ -9,6 +9,9 @@ import no.uio.ifi.asp.scanner.TokenKind;
 
 import java.util.ArrayList;
 
+/**
+ *
+ */
 public class AspSuite extends AspSyntax{
     ArrayList<AspStmt> stmts = new ArrayList<>();
 

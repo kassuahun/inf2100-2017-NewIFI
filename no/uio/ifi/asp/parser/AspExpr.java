@@ -10,6 +10,9 @@ import java.util.ArrayList;
 
 import static no.uio.ifi.asp.scanner.TokenKind.orToken;
 
+/**
+ *
+ */
 public class AspExpr extends AspSyntax {
     //-- Must be changed in part 2:
     ArrayList<AspAndTest> andTests = new ArrayList<>();

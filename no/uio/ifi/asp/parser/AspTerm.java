@@ -9,6 +9,9 @@ import no.uio.ifi.asp.scanner.TokenKind;
 
 import java.util.ArrayList;
 
+/**
+ *
+ */
 public class AspTerm extends AspSyntax {
     ArrayList<AspFactor> factorsList = new ArrayList<AspFactor>();
     ArrayList<AspTermOpr> termOprsList = new ArrayList<AspTermOpr>();
@@ -56,7 +59,7 @@ public class AspTerm extends AspSyntax {
                 case plusToken:
                     v = v.evalAdd(factorsList.get(i).eval(curScope), this); break;
                 default:
-                    Main.panic("Illegal term operator: " + k + "!");
+                    Main.panic("Unknown term operator: " + k + "!");
             }
         }
         return v;

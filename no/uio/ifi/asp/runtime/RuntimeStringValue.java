@@ -12,8 +12,6 @@ public class RuntimeStringValue extends RuntimeValue {
         this.emptyStr = (!s.equals("")); // hvis s er tom, er bool false.
     }
 
-
-
     @Override
     public String toString() {
         return strValue;
@@ -33,7 +31,7 @@ public class RuntimeStringValue extends RuntimeValue {
     public String getStringValue(String what, AspSyntax where) {
         return this.toString();
     }
-/*
+
     @Override
     public String showInfo() {
         if (strValue.indexOf('\'') >= 0)
@@ -41,17 +39,15 @@ public class RuntimeStringValue extends RuntimeValue {
         else
             return "'" + strValue + "'";
     }
-*/
+
     @Override
     public RuntimeValue evalNot(AspSyntax where) {
-        RuntimeValue res = new RuntimeBoolValue(this.emptyStr);
-        return res;
+        return new RuntimeBoolValue(this.emptyStr);
     }
 
     @Override
     public RuntimeValue evalLen(AspSyntax where) {
-        RuntimeValue res = new RuntimeIntValue(this.strValue.length());
-        return res;
+        return new RuntimeIntValue(this.strValue.length());
     }
 
     @Override
@@ -61,7 +57,7 @@ public class RuntimeStringValue extends RuntimeValue {
             String v2 = v.getStringValue(" + ", where);
             res =  new RuntimeStringValue(strValue + v2);
         } else {
-            runtimeError("Error! RuntimeStringValue.evalAdd : " + v.getClass(), where);
+            runtimeError("Type Error! at RuntimeStringValue.evalAdd : " + v.getClass(), where);
         }
         return res;
     }
@@ -77,7 +73,7 @@ public class RuntimeStringValue extends RuntimeValue {
             }
             res =  new RuntimeStringValue(strRes);
         } else {
-            runtimeError("Error! RuntimeStringValue.evalMultiply : " + v.getClass(), where);
+            runtimeError("Type Error! at RuntimeStringValue.evalMultiply : " + v.getClass(), where);
         }
         return res;
     }
@@ -91,7 +87,7 @@ public class RuntimeStringValue extends RuntimeValue {
         } else if (v instanceof RuntimeNoneValue) {
             res = new RuntimeBoolValue(false);
         } else {
-            runtimeError("Error! RuntimeStringValue.evalEqual : " +
+            runtimeError("Type Error! at RuntimeStringValue.evalEqual : " +
                     v.getClass(), where);
         }
         return res;
@@ -106,7 +102,7 @@ public class RuntimeStringValue extends RuntimeValue {
         } else if (v instanceof RuntimeNoneValue) {
             res = new RuntimeBoolValue(false);
         } else {
-            runtimeError("Error! RuntimeStringValue.evalEqual : " +
+            runtimeError("Type Error! at RuntimeStringValue.evalEqual : " +
                     v.getClass(), where);
         }
         return res;
@@ -123,7 +119,7 @@ public class RuntimeStringValue extends RuntimeValue {
                 res = new RuntimeBoolValue(false);
             }
         } else {
-            runtimeError("Error! RuntimeStringValue.evalLess : " +
+            runtimeError("Type Error! at RuntimeStringValue.evalLess : " +
                     v.getClass(), where);
             }
         return res;
@@ -140,7 +136,7 @@ public class RuntimeStringValue extends RuntimeValue {
                 res = new RuntimeBoolValue(false);
             }
         } else {
-            runtimeError("Error! RuntimeStringValue.evalLessEqual : " +
+            runtimeError("Type Error! at RuntimeStringValue.evalLessEqual : " +
                     v.getClass(), where);
         }
         return res;
@@ -157,7 +153,7 @@ public class RuntimeStringValue extends RuntimeValue {
                 res = new RuntimeBoolValue(false);
             }
         } else {
-            runtimeError("Error! RuntimeStringValue.evalGreater : " +
+            runtimeError("Type Error! at RuntimeStringValue.evalGreater : " +
                     v.getClass(), where);
         }
         return res;
@@ -174,10 +170,12 @@ public class RuntimeStringValue extends RuntimeValue {
                 res = new RuntimeBoolValue(false);
             }
         } else {
-            runtimeError("Error! RuntimeStringValue.evalGreaterEqual : " +
+            runtimeError("Type Error! at RuntimeStringValue.evalGreaterEqual : " +
                     v.getClass(), where);
         }
         return res;
     }
+
+
 
 }

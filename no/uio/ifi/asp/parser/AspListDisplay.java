@@ -11,6 +11,9 @@ import java.util.ArrayList;
 
 import static no.uio.ifi.asp.scanner.TokenKind.*;
 
+/**
+ *
+ */
 public class AspListDisplay extends AspAtom {
 
     ArrayList<AspExpr> exprList = new ArrayList<AspExpr>();
@@ -60,9 +63,7 @@ public class AspListDisplay extends AspAtom {
             RuntimeValue rtValue = exprList.get(i).eval(curScope);
             valList.add(rtValue);
         }
-
         RuntimeListValue rtListVal = new RuntimeListValue(valList);
-
         return rtListVal;
     }
 }

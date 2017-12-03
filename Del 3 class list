@@ -10,20 +10,21 @@ at if 22
 
             Part II
             package no.uio.ifi.asp.parser
-            - [AspSyntax]
+            - [AspSyntax]               Nothing to do
             - - AspAndTest              Done
-            - - AspCompOpr
-            - - AspComparison
-            - - AspExpr '
-            - - AspFactor
-            - - AspFactorOpr
-            - - AspFactorPrefix
-            - - AspNotTest
-            - - AspPrimary
-            - - AspSuite
-            - - AspTerm
-            - - AspTermOpr
-            - - AspProgram
+            - - AspCompOpr              Nothing to do
+            - - AspComparison           Done r
+            - - AspExpr '               done b
+            - - AspFactor               Done
+            - - AspFactorOpr            Nothing to do
+            - - AspFactorPrefix         Nothing to do
+            - - AspNotTest              Done
+            - - AspPrimary    // some issues
+            - - AspSuite                Done b
+            - - AspTerm                 Done b
+            - - AspTermOpr              Done b
+            - - AspProgram              Done b
+
 
             - - [AspAtom]
             - - - AspBooleanLiteral     Done
@@ -36,18 +37,20 @@ at if 22
             - - - AspNoneLiteral        Done// issue with constructor
             - - - AspStringLiteral      Done
 
-            - - [AspPrimarySuffix]       Nothing to do  .......
+
+            - - [AspPrimarySuffix]      Nothing to do  .......
             - - - AspArguments          Done
             - - - AspSubscription       Done
+
 
             - - [AspStmt]
             - - - AspAssignment         Done
             - - - AspExprStmt''''       Done
             - - - AspFuncDef            Complications
-            - - - AspIfStmt
-            - - - AspPassStmt
-            - - - AspReturnStmt
-            - - - AspWhileStmt
+            - - - AspIfStmt             Done
+            - - - AspPassStmt           Done
+            - - - AspReturnStmt         Done
+            - - - AspWhileStmt          Done
 
 
             Part 3
@@ -55,14 +58,15 @@ at if 22
             - RuntimeScope
             - - RuntimeLibrary
             - [RuntimeValue]
-            - - RuntimeBoolValue
+            - - RuntimeBoolValue        Done 80%
             - - RuntimeDictValue
-            - - RuntimeFloatValue
+            - - RuntimeFloatValue       Done 80%
             - - RuntimeFunc
-            - - RuntimeIntValue
+            - - RuntimeIntValue         Done 80%
             - - RuntimeListValue
             - - RuntimeNoneValue
             - - RuntimeStringValue
+
 
             Part one
             package no.uio.ifi.asp.scanner

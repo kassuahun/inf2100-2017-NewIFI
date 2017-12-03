@@ -9,6 +9,9 @@ import no.uio.ifi.asp.scanner.TokenKind;
 
 import java.util.ArrayList;
 
+/**
+ *
+ */
 public class AspFactor extends AspSyntax{
     AspFactorPrefix fPrefix = null; // optional
     ArrayList<AspPrimary> primaryList = new ArrayList<AspPrimary>();

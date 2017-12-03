@@ -11,9 +11,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import static no.uio.ifi.asp.scanner.TokenKind.*;
-/*
+/**
 * Done
-* */
+**/
 public class AspDictDisplay extends AspAtom{
     ArrayList<AspStringLiteral> strLitList = new ArrayList<AspStringLiteral>();
     ArrayList<AspExpr> exprsList = new ArrayList<AspExpr>();
@@ -36,14 +36,11 @@ public class AspDictDisplay extends AspAtom{
                if (s.curToken().kind!=commaToken) break;
                skip(s,commaToken);
             }
-
         }
         skip(s, rightBraceToken);
-
         Main.log.leaveParser("dict display");
         return dictDisplay;
     }
-
 
     @Override
     protected void prettyPrint() {

@@ -82,12 +82,12 @@ public class Main {
 
 	if (log != null) log.finish();
 	//file compare
-		filecompare(baseFilename);
+		fileCompare(baseFilename);
 
 	System.exit(0);
     }
 
-	public static void filecompare(String baseFilename)
+	public static void fileCompare(String baseFilename)
 	{
 		File in = new File(baseFilename+".log");
 		File in1 = new File(baseFilename+"ref.log");
@@ -141,15 +141,16 @@ public class Main {
 
 	RuntimeScope emptyScope = new RuntimeScope();
 	for (AspExpr e: exprs) {
-	    e.prettyPrint();  log.prettyWriteLn(" ==>");
-	    try {
-		RuntimeValue res = e.eval(emptyScope);
-		log.traceEval(res.showInfo(), e);
-	    } catch (RuntimeReturnValue rrv) {
-		panic("Uncaught return value!");
-	    }
+		e.prettyPrint();
+		log.prettyWriteLn(" ==>");
+		try {
+			RuntimeValue res = e.eval(emptyScope);
+			log.traceEval(res.showInfo(), e);
+		} catch (RuntimeReturnValue rrv) {
+			panic("Uncaught return value!");
+		}
 	}
-    }
+	}
 
 
     private static void doRunInterpreter(Scanner s) {

@@ -7,6 +7,9 @@ import no.uio.ifi.asp.runtime.RuntimeValue;
 import no.uio.ifi.asp.scanner.Scanner;
 import no.uio.ifi.asp.scanner.TokenKind;
 
+/**
+ *
+ */
 public class AspTermOpr extends AspSyntax {
     TokenKind tOprKind;
 

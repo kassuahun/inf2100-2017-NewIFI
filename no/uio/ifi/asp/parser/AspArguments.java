@@ -16,10 +16,12 @@ import no.uio.ifi.asp.scanner.Scanner;
 import java.util.ArrayList;
 
 import static no.uio.ifi.asp.scanner.TokenKind.*;
-/*
+/**
 *This class creates the object of AspArguments and stores the Asp expressions in ArrayList.
 * @ extends AspPrimarySuffix
- */
+*/
+
+
 public class AspArguments extends AspPrimarySuffix {
 
     ArrayList<AspExpr> exprList = new ArrayList<AspExpr>();

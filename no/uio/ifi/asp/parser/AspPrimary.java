@@ -1,9 +1,7 @@
 package no.uio.ifi.asp.parser;
 
 import no.uio.ifi.asp.main.Main;
-import no.uio.ifi.asp.runtime.RuntimeReturnValue;
-import no.uio.ifi.asp.runtime.RuntimeScope;
-import no.uio.ifi.asp.runtime.RuntimeValue;
+import no.uio.ifi.asp.runtime.*;
 import no.uio.ifi.asp.scanner.Scanner;
 
 import java.util.ArrayList;
@@ -46,16 +44,29 @@ public class AspPrimary extends AspSyntax{
 
     @Override
     RuntimeValue eval(RuntimeScope curScope) throws RuntimeReturnValue {
-        RuntimeValue res = atom.eval(curScope);
-        for (AspPrimarySuffix prx : prSuffix) {
-            if (prx instanceof AspSubscription){
-                res = res.evalSubscription(prx.eval(curScope), this);
-            }
-            else if (prx instanceof AspArguments) {
-                 //res = res.evalAssignElem(prx.eval(curScope),this);
+        RuntimeValue res = null;
+
+        if (prSuffix.size() == 0){
+           res = atom.eval(curScope);
+
+        } else if (atom instanceof AspStringLiteral){
+
+            int index = (int) prSuffix.get(0).eval(curScope).getIntValue("AspPrimary.eval", this);
+            res = new RuntimeStringValue(""+atom.eval(curScope).getStringValue("AspPrimary.eval", this).charAt(index));
+
+        } else{
+            res = atom.eval(curScope);
+            for (AspPrimarySuffix prx : prSuffix) {
+                if (prx instanceof AspSubscription) {
+                    res = res.evalSubscription(prx.eval(curScope), this);
+                } else if (prx instanceof AspArguments) {
+                    //res = res.(prx.eval(curScope),this); // am not sure How this Works
+                }
             }
         }
 
-        return null;
+        return res;
     }
+
+
 }

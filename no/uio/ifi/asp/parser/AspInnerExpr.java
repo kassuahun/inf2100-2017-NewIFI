@@ -9,7 +9,9 @@ import no.uio.ifi.asp.scanner.Scanner;
 import static no.uio.ifi.asp.scanner.TokenKind.leftParToken;
 import static no.uio.ifi.asp.scanner.TokenKind.rightParToken;
 
-
+/**
+ *
+ */
 public class AspInnerExpr extends AspAtom {
     AspExpr expr;
 

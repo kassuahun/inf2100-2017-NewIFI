@@ -4,7 +4,10 @@ import no.uio.ifi.asp.parser.*;
 
 import java.util.ArrayList;
 
-//Done and tested
+/**
+ * Done and tested
+ */
+
 public class RuntimeListValue extends RuntimeValue {
     private final boolean boolValue;
      ArrayList<RuntimeValue> listValue;
@@ -66,7 +69,7 @@ public class RuntimeListValue extends RuntimeValue {
         if (v instanceof RuntimeNoneValue) {
             res = new RuntimeBoolValue(false);
         } else {
-            runtimeError("Error! at RuntimeListValue.evalEqual : " + v.getClass(), where);
+            runtimeError("Type Error! at RuntimeListValue.evalEqual : " + v.getClass(), where);
         }
         return res;
     }
@@ -78,14 +81,15 @@ public class RuntimeListValue extends RuntimeValue {
         if (v instanceof RuntimeNoneValue) {
             res = new RuntimeBoolValue(true);
         } else {
-            runtimeError("Error! at RuntimeListValue.evalNotEqual : " + v.getClass(), where);
+            runtimeError("Type Error! at RuntimeListValue.evalNotEqual : " + v.getClass(), where);
         }
         return res;
     }
 
-    /*
+    /**
     * appends the List values on the current instance with the
-    * RuntimeValue which comes as arg it it is list instance */
+    * RuntimeValue which comes as arg it it is list instance
+    */
     @Override
     public RuntimeValue evalAdd(RuntimeValue v, AspSyntax where) {
         RuntimeValue res = null;
@@ -95,7 +99,7 @@ public class RuntimeListValue extends RuntimeValue {
             temp.addAll(v.getListValue(" + ", where));
             res =  new RuntimeListValue(temp);
         } else {
-            runtimeError("Error! at RuntimeListValue.evalAdd: " + v.getClass(), where);
+            runtimeError("Type Error! at RuntimeListValue.evalAdd: " + v.getClass(), where);
         }
         return res;
     }
@@ -112,7 +116,7 @@ public class RuntimeListValue extends RuntimeValue {
             }
             res =  new RuntimeListValue(temp);
         } else {
-            runtimeError("Error! at RuntimeListValue.evalAdd: " + v.getClass(), where);
+            runtimeError("Type Error! at RuntimeListValue.evalAdd: " + v.getClass(), where);
         }
         return res;
     }
@@ -123,7 +127,7 @@ public class RuntimeListValue extends RuntimeValue {
         if (v instanceof RuntimeIntValue) {
             res = listValue.get((int) v.getIntValue("subscription", where));
         } else {
-            runtimeError("Error at RuntimeListValue.evalSubscription: " +
+            runtimeError("Type Error! at RuntimeListValue.evalSubscription: " +
                     v.getClass(),where);
         }
         return res;

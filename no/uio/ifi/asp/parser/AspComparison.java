@@ -9,6 +9,10 @@ import no.uio.ifi.asp.scanner.TokenKind;
 
 import java.util.ArrayList;
 
+
+/**
+ *
+ */
 public class AspComparison extends AspSyntax{
 
     ArrayList<AspTerm> terms = new ArrayList<AspTerm>();
@@ -72,7 +76,7 @@ public class AspComparison extends AspSyntax{
                    rtv = rtv.evalNotEqual(terms.get(i).eval(curScope),this);
                    break;
                default:
-                   Main.panic("unknown comp opr  " + compOprs.get(i-1).compOprKind );
+                   Main.panic("Unknown comp opr  " + compOprs.get(i-1).compOprKind );
             }
             if (i != terms.size()-1){
                 if (!rtv.getBoolValue((compOprs.get(i-1).compOprKind.toString()+ " opr"), this))

@@ -10,7 +10,9 @@ import java.util.ArrayList;
 
 import static no.uio.ifi.asp.scanner.TokenKind.*;
 
-
+/**
+ *
+ */
 public class AspIfStmt extends AspStmt {
 
     ArrayList<AspExpr> condList = new ArrayList<AspExpr>();

@@ -6,6 +6,9 @@ import no.uio.ifi.asp.runtime.RuntimeScope;
 import no.uio.ifi.asp.runtime.RuntimeValue;
 import no.uio.ifi.asp.scanner.Scanner;
 
+/**
+ *
+ */
 public abstract class AspStmt extends AspSyntax {
     static AspStmt st = null;
     public AspStmt(int i) {
@@ -25,17 +28,6 @@ public abstract class AspStmt extends AspSyntax {
                         st = AspExprStmt.parse(s);
                     }
                     break;
-                    /* exeptional
-                case integerToken:
-                    st= AspExprStmt.parse(s);
-                    break;
-                case floatToken :
-                    st= AspExprStmt.parse(s);
-                    break;
-                case stringToken:
-                    st= AspExprStmt.parse(s);
-                    break;
-                    *///end of exeptionals
                 case ifToken:
                     st = AspIfStmt.parse(s);
                     break;

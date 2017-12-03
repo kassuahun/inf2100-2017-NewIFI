@@ -10,6 +10,9 @@ import no.uio.ifi.asp.scanner.TokenKind;
 import no.uio.ifi.asp.scanner.Token;
 
 
+/**
+ *
+ */
 public class AspBooleanLiteral extends AspAtom {
 
     TokenKind boolOprKind;

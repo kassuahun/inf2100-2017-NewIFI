@@ -5,7 +5,7 @@ import no.uio.ifi.asp.parser.AspSyntax;
 
 import java.util.HashMap;
 
-/*
+/**
 * Done and Tested
 */
 public class RuntimeDictValue extends RuntimeValue{
@@ -59,15 +59,8 @@ public class RuntimeDictValue extends RuntimeValue{
         }
         return "{"+ strOut  + "}";
     }
-/* may not be needed
-    @Override
-    public HashMap<String, RuntimeValue> getDictValue(String what, AspSyntax where) {
-        return this.dictValue;
-    }
-*/
 
-
-    /*
+    /**
     * any == none implementations
     * assume any == none is false
     * */
@@ -77,7 +70,7 @@ public class RuntimeDictValue extends RuntimeValue{
         if (v instanceof RuntimeNoneValue) {
             res = new RuntimeBoolValue(false);
         } else {
-            runtimeError("evalEqual in RuntimeDictValue får feil type: " +
+            runtimeError("Error! at RuntimeDictValue.evalEqual : " +
                     v.getClass(), where);
         }
     return res;
@@ -89,7 +82,7 @@ public class RuntimeDictValue extends RuntimeValue{
         if (v instanceof RuntimeNoneValue) {
             res = new RuntimeBoolValue(true);
         } else {
-            runtimeError("evalEqual in RuntimeDictValue får feil type: " +
+            runtimeError("Error! at RuntimeDictValue.evalEqual : " +
                     v.getClass(), where);
         }
         return res;
@@ -104,7 +97,7 @@ public class RuntimeDictValue extends RuntimeValue{
              //runtimeError("noe feil her med at index ikke finnes...: " + v.getClass(), where);
 
         } else {
-            runtimeError("evalSubscription() i RuntimeDictValue får feil type" +
+            runtimeError("Error! at RuntimeDictValue.evalSubscription " +
                     v.getClass(), where);
 
         }

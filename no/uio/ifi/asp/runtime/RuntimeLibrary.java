@@ -13,9 +13,5 @@ public class RuntimeLibrary extends RuntimeScope {
     }
 
 
-    private void checkNumParams(ArrayList<RuntimeValue> actArgs, 
-				int nCorrect, String id, AspSyntax where) {
-	if (actArgs.size() != nCorrect)
-	    RuntimeValue.runtimeError("Wrong number of parameters to "+id+"!",where);
-    }
+
 }
